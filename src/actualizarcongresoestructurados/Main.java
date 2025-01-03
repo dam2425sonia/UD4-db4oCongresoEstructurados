@@ -72,8 +72,8 @@ public class Main {
       System.out.println(resul.next());
     }
   }
-//Consulta QBE de objetos estructurados. Consulta de todas las charlas.
 
+  //Consulta QBE de objetos estructurados. Consulta de todas las charlas.
   public static void mostrarCharlasQBE(ObjectContainer db) {
     //se crea el objeto charla patrón de búsqueda
     charla c = new charla(null, 0);
@@ -81,9 +81,9 @@ public class Main {
     ObjectSet resul = db.queryByExample(c);
     mostrarConsulta(resul);//método que muestra los objetos recuperados de BDOO
   }
+
   //Consulta SODA de objetos estructurados
   //Se consulta la charla cuyo título se pasa en parámetro tit
-
   public static void consultaSODACharla_concreta(ObjectContainer db, String tit) {
     Query query = db.query(); //declara un objeto query
     query.constrain(charla.class);//establece la clase a la que se aplicará la restricción
@@ -92,7 +92,7 @@ public class Main {
     mostrarConsulta(resul);//método que muestra los objetos recuperados de la BDOO
   }
 
-  //Consulta de objetos estructurados. Consulta QBE
+  //Consulta de objetos estructurados. Consulta QBE (queryByExample)
   //Consulta de las charlas del ponenete Anotnio Camaco
   public static void mostrarCharlasCamacoQBE(ObjectContainer db) {
     //se crea objeto ponente con patrón de búsqueda (el ejemplo)
@@ -103,9 +103,9 @@ public class Main {
     ObjectSet resul = db.queryByExample(c); //Consulta las charlas con patrones indicados
     mostrarConsulta(resul);//método que muestra los objetos recuperados de BDOO
   }
+  
   //Borrado de objetos estructurados. Se utiliza Consulta SODA
   //Se elimina la charla de título tit sin eliminar al ponente asociado
-
   public static void borrarCharlaporTitulo(ObjectContainer db, String tit) {
     Query query = db.query(); //declaración de un objeto query(). 
     query.constrain(charla.class);//establece la clase a la que se aplicará la restricción
@@ -117,8 +117,8 @@ public class Main {
       db.delete(c);
     }
   }
-//Consulta de todos los objetos ponente. Consulta QBE
 
+  //Consulta de todos los objetos ponente. Consulta QBE (queryByExample)
   public static void mostrarPonentes(ObjectContainer db) {
     //se crea objeto p con patrón de búsqueda (el ejemplo)
     ponente p = new ponente(null, null, null, 0);
@@ -126,9 +126,9 @@ public class Main {
     ObjectSet res = db.queryByExample(p);
     mostrarConsulta(res); //método que muestra los objetos recuperados de BDOO
   }
-  //Modificación de Objetos estructurados. Con consulta QBE
+  
+  //Modificación de Objetos estructurados. Con consulta QBE (queryByExample)
   //Actualiza la duración de la charla de título tit en d horas
-
   public static void actualizarHorasCharla(ObjectContainer db, String tit, float d) {
     //consulta la charla de patrón charla(tit,0). Consulta QBE
     ObjectSet res = db.queryByExample(new charla(tit, 0));
